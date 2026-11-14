@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OFFICIAL MEDIA KIT 2026 | Medan Bites & Trails</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#E23E1D',
+              secondary: '#D97706',
+              accent: '#F59E0B',
+              dark: '#0D0E11',
+              surface: '#15171C',
+              surfaceBorder: '#23262F',
+              muted: '#9CA3AF',
+            }
+          },
+          fontFamily: {
+            heading: ['Outfit', 'sans-serif'],
+            body: ['Plus Jakarta Sans', 'sans-serif'],
+            display: ['Playfair Display', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0D0E11;
+      color: #F3F4F6;
+    }
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Outfit', sans-serif;
+    }
+    @media print {
+      body {
+        background-color: #ffffff !important;
+        color: #111827 !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .print-page {
+        page-break-after: always;
+        break-after: page;
+        min-height: 100vh;
+        background-color: #ffffff !important;
+        color: #111827 !important;
+        border: none !important;
+        box-shadow: none !important;
+      }
+      .print-dark-text {
+        color: #111827 !important;
+      }
+      .print-card {
+        background-color: #f9fafb !important;
+        border: 1px solid #e5e7eb !important;
+      }
+    }
+  </style>
+</head>
+<body class="antialiased min-h-screen py-10 px-4 sm:px-6 lg:px-8 selection:bg-brand-primary selection:text-white">
+
+  <!-- Top Bar for Actions (No Print) -->
+  <div class="max-w-4xl mx-auto mb-8 flex items-center justify-between no-print bg-brand-surface p-4 rounded-2xl border border-brand-surfaceBorder shadow-xl">
+    <a href="index.html" class="flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      <span>Kembali ke Landing Page</span>
+    </a>
+    <div class="flex items-center gap-3">
+      <button onclick="window.print()" class="px-5 py-2.5 rounded-xl bg-brand-primary text-white text-sm font-bold flex items-center gap-2 hover:bg-brand-primaryHover transition-all shadow-md">
+        <i data-lucide="printer" class="w-4 h-4"></i>
+        <span>Cetak / Simpan PDF</span>
+      </button>
+      <a href="https://wa.me/6281234567890?text=Halo%20Medan%20Bites!%20Saya%20tertarik%20kolaborasi." target="_blank" class="px-4 py-2.5 rounded-xl border border-brand-surfaceBorder bg-brand-dark text-gray-200 text-sm font-semibold flex items-center gap-2 hover:text-emerald-400">
+        <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
+        <span>Hubungi WhatsApp</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Document Container (A4 Proportional Simulation) -->
+  <div class="max-w-4xl mx-auto space-y-12">
+
+    <!-- ==================== PAGE 1: COVER & CREATOR OVERVIEW ==================== -->
+    <div class="print-page bg-brand-surface rounded-3xl p-8 sm:p-14 border border-brand-surfaceBorder relative overflow-hidden shadow-2xl">
+      <div class="flex items-center justify-between border-b border-brand-surfaceBorder pb-6 mb-8">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-brand-primary flex items-center justify-center text-white">
+            <i data-lucide="utensils" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h2 class="text-xl font-black text-white tracking-tight font-heading">MEDAN BITES & TRAILS</h2>
+            <p class="text-xs text-brand-muted">Official Brand Partnership Media Kit • Edisi 2026</p>
+          </div>
+        </div>
+        <span class="px-3 py-1 rounded-full bg-brand-primary/20 text-brand-primary text-xs font-bold border border-brand-primary/30">
+          TERVERIFIKASI
+        </span>
+      </div>
+
+      <div class="space-y-6">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-accent">Profil Kreator & Media Hyperlocal</span>
+        <h1 class="text-3xl sm:text-5xl font-extrabold text-white leading-tight font-heading">
+          Pintu Masuk Terpercaya Menuju Selera & Pasar Kota Medan.
+        </h1>
+        <p class="text-sm sm:text-base text-gray-300 leading-relaxed max-w-2xl">
+          Medan Bites & Trails adalah media independen yang mengulas kelezatan kuliner lintas budaya (Melayu, Tionghoa, Mandailing, Batak, Minang) serta keindahan destinasi pariwisata Sumatera Utara. Kami dipercaya oleh lebih dari 500.000 pembaca dan penonton aktif setiap bulannya.
+        </p>
+      </div>
+
+      <!-- Quick Metrics Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10 pt-8 border-t border-brand-surfaceBorder">
+        <div class="p-4 rounded-2xl bg-brand-dark border border-brand-surfaceBorder">
+          <p class="text-2xl sm:text-3xl font-black text-white font-heading">500K+</p>
+          <p class="text-xs text-brand-accent font-semibold mt-1">Monthly Reach</p>
+          <p class="text-[11px] text-brand-muted">Total penonton aktif</p>
+        </div>
+        <div class="p-4 rounded-2xl bg-brand-dark border border-brand-surfaceBorder">
+          <p class="text-2xl sm:text-3xl font-black text-brand-primary font-heading">8.2%</p>
+          <p class="text-xs text-brand-primary font-semibold mt-1">Engagement Rate</p>
+          <p class="text-[11px] text-brand-muted">3x rata-rata industri</p>
+        </div>
+        <div class="p-4 rounded-2xl bg-brand-dark border border-brand-surfaceBorder">
+          <p class="text-2xl sm:text-3xl font-black text-white font-heading">185K+</p>
+          <p class="text-xs text-emerald-400 font-semibold mt-1">Followers Aktif</p>
+          <p class="text-[11px] text-brand-muted">IG, TikTok & YouTube</p>
+        </div>
+        <div class="p-4 rounded-2xl bg-brand-dark border border-brand-surfaceBorder">
+          <p class="text-2xl sm:text-3xl font-black text-white font-heading">150+</p>
+          <p class="text-xs text-amber-400 font-semibold mt-1">Resto & Hotel</p>
+          <p class="text-[11px] text-brand-muted">Mitra sukses kami</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== PAGE 2: AUDIENCE DEMOGRAPHICS & PROFILE ==================== -->
+    <div class="print-page bg-brand-surface rounded-3xl p-8 sm:p-14 border border-brand-surfaceBorder shadow-2xl space-y-8">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-primary">Demografi & Karakteristik Audiens</span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-1 font-heading">Siapa yang Menonton & Membeli?</h2>
+        <p class="text-xs sm:text-sm text-brand-muted mt-2">Data analitik gabungan platform Instagram & TikTok per Q4 2026.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Age & Gender -->
+        <div class="p-6 rounded-2xl bg-brand-dark border border-brand-surfaceBorder space-y-6">
+          <h3 class="text-base font-bold text-white flex items-center gap-2">
+            <i data-lucide="user-check" class="w-4 h-4 text-brand-primary"></i>
+            <span>Rentang Usia & Gender</span>
+          </h3>
+          
+          <div class="space-y-3">
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span>Usia 25 - 34 Tahun (Prime Spenders)</span>
+                <span class="text-brand-primary font-bold">50%</span>
+              </div>
+              <div class="w-full h-2 rounded-full bg-brand-surface">
+                <div class="h-full bg-brand-primary rounded-full" style="width: 50%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span>Usia 18 - 24 Tahun (Young Foodies)</span>
+                <span class="text-brand-accent font-bold">34%</span>
+              </div>
+              <div class="w-full h-2 rounded-full bg-brand-surface">
+                <div class="h-full bg-brand-accent rounded-full" style="width: 34%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span>Usia 35+ Tahun (Family Travelers)</span>
+                <span class="text-gray-400 font-bold">16%</span>
+              </div>
+              <div class="w-full h-2 rounded-full bg-brand-surface">
+                <div class="h-full bg-gray-500 rounded-full" style="width: 16%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-brand-surfaceBorder flex justify-around text-center">
+            <div>
+              <p class="text-xl font-black text-white font-heading">54%</p>
+              <p class="text-[11px] text-brand-muted">Wanita (Pengambil Keputusan)</p>
+            </div>
+            <div class="w-px h-8 bg-brand-surfaceBorder"></div>
+            <div>
+              <p class="text-xl font-black text-white font-heading">46%</p>
+              <p class="text-[11px] text-brand-muted">Pria (Coffee & Explore)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Geographic Reach -->
+        <div class="p-6 rounded-2xl bg-brand-dark border border-brand-surfaceBorder space-y-6">
+          <h3 class="text-base font-bold text-white flex items-center gap-2">
+            <i data-lucide="map-pin" class="w-4 h-4 text-brand-accent"></i>
+            <span>Sebaran Wilayah</span>
+          </h3>
+
+          <div class="space-y-4 text-xs">
+            <div class="p-3 rounded-xl bg-brand-surface border border-brand-surfaceBorder/60 flex items-center justify-between">
+              <div>
+                <p class="font-bold text-white">Kota Medan (Lokal)</p>
+                <p class="text-[11px] text-brand-muted">Konsumen direct visit resto & cafe</p>
+              </div>
+              <span class="text-base font-black text-white font-heading">68%</span>
+            </div>
+
+            <div class="p-3 rounded-xl bg-brand-surface border border-brand-surfaceBorder/60 flex items-center justify-between">
+              <div>
+                <p class="font-bold text-white">Jabodetabek</p>
+                <p class="text-[11px] text-brand-muted">Wisatawan domestik & calon pembeli oleh-oleh</p>
+              </div>
+              <span class="text-base font-black text-brand-secondary font-heading">18%</span>
+            </div>
+
+            <div class="p-3 rounded-xl bg-brand-surface border border-brand-surfaceBorder/60 flex items-center justify-between">
+              <div>
+                <p class="font-bold text-white">Sumut & Kota Lain</p>
+                <p class="text-[11px] text-brand-muted">Binjai, Pematangsiantar, Berastagi</p>
+              </div>
+              <span class="text-base font-black text-gray-400 font-heading">14%</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ==================== PAGE 3: RATE CARD & COLLABORATION TIERS ==================== -->
+    <div class="print-page bg-brand-surface rounded-3xl p-8 sm:p-14 border border-brand-surfaceBorder shadow-2xl space-y-8">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-accent">Daftar Harga & Spesifikasi Layanan</span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-1 font-heading">Paket Kolaborasi Resmi (Rate Card 2026)</h2>
+        <p class="text-xs sm:text-sm text-brand-muted mt-2">Harga dapat dinegosiasikan untuk kontrak jangka panjang (3+ bulan).</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Package 1 -->
+        <div class="p-6 rounded-2xl bg-brand-dark border border-brand-surfaceBorder flex flex-col justify-between">
+          <div class="space-y-4">
+            <span class="text-[11px] font-bold text-gray-400 uppercase">Tier 1</span>
+            <h3 class="text-xl font-bold text-white font-heading">Foodie Spotlight</h3>
+            <p class="text-2xl font-black text-white font-heading">Rp 2.500.000</p>
+            <ul class="text-xs text-gray-300 space-y-2.5 pt-2">
+              <li class="flex items-start gap-2">✓ 1x Video Reels / TikTok (60-90s, 4K)</li>
+              <li class="flex items-start gap-2">✓ 3x IG Story dengan link lokasi</li>
+              <li class="flex items-start gap-2">✓ Review Google Maps Bintang 5</li>
+              <li class="flex items-start gap-2">✓ Laporan Insight setelah 7 hari</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Package 2 (Featured) -->
+        <div class="p-6 rounded-2xl bg-[#1C1413] border-2 border-brand-primary flex flex-col justify-between shadow-lg">
+          <div class="space-y-4">
+            <span class="text-[11px] font-bold text-brand-primary uppercase">Paling Diminati</span>
+            <h3 class="text-xl font-bold text-white font-heading">Ultimate Campaign</h3>
+            <p class="text-2xl font-black text-white font-heading">Rp 5.500.000</p>
+            <ul class="text-xs text-gray-200 space-y-2.5 pt-2">
+              <li class="flex items-start gap-2">✓ 2x Video Multi-Platform (Reels, TikTok, Shorts)</li>
+              <li class="flex items-start gap-2">✓ 5x IG Story + Polling Interaktif</li>
+              <li class="flex items-start gap-2">✓ Pin Post selama 14 Hari di profil</li>
+              <li class="flex items-start gap-2">✓ Hak Iklan Digital Ads (30 Hari)</li>
+              <li class="flex items-start gap-2">✓ Masuk Highlight Rekomendasi Medan</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Package 3 -->
+        <div class="p-6 rounded-2xl bg-brand-dark border border-brand-surfaceBorder flex flex-col justify-between">
+          <div class="space-y-4">
+            <span class="text-[11px] font-bold text-emerald-400 uppercase">Hospitality</span>
+            <h3 class="text-xl font-bold text-white font-heading">Travel & Staycation</h3>
+            <p class="text-2xl font-black text-white font-heading">Rp 8.000.000</p>
+            <ul class="text-xs text-gray-300 space-y-2.5 pt-2">
+              <li class="flex items-start gap-2">✓ 1x Full Vlog Staycation (2-3 Menit)</li>
+              <li class="flex items-start gap-2">✓ Liputan Kamar, Dining & Fasilitas</li>
+              <li class="flex items-start gap-2">✓ 10 Foto High-Res Hak Milik Brand</li>
+              <li class="flex items-start gap-2">✓ Kode Voucher Booking Eksklusif</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Terms & Notes -->
+      <div class="p-4 rounded-xl bg-brand-dark/50 border border-brand-surfaceBorder text-xs text-brand-muted space-y-1">
+        <p class="font-bold text-gray-300">Ketentuan Kerjasama:</p>
+        <p>1. Biaya belum termasuk akomodasi/transportasi jika lokasi berada di luar kota Medan (misal: Berastagi / Danau Toba).</p>
+        <p>2. Makanan & minuman untuk kebutuhan syuting disiapkan oleh pihak pengundang.</p>
+        <p>3. Pembayaran: DP 50% saat booking jadwal visit, dan pelunasan 50% setelah draft video disetujui sebelum penayangan.</p>
+      </div>
+
+      <!-- Contact Footer inside Media Kit -->
+      <div class="pt-6 border-t border-brand-surfaceBorder flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          <p class="text-sm font-bold text-white">Tim Manajemen & Partnership</p>
+          <p class="text-xs text-brand-muted">WhatsApp: +62 812-3456-7890 • Email: partnership@medanbites.com</p>
+        </div>
+        <a href="https://wa.me/6281234567890?text=Halo%20Medan%20Bites!%20Saya%20ingin%20booking%20jadwal%20kolaborasi." target="_blank" class="px-6 py-3 rounded-xl bg-brand-primary text-white text-xs font-bold shadow-md hover:bg-brand-primaryHover transition-all flex items-center gap-2">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>Hubungi Tim via WhatsApp</span>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

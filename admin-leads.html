@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard Leads | Medan Bites & Trails</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#E23E1D',
+              secondary: '#D97706',
+              accent: '#F59E0B',
+              dark: '#0D0E11',
+              surface: '#15171C',
+              surfaceBorder: '#23262F',
+              muted: '#9CA3AF',
+            }
+          },
+          fontFamily: {
+            heading: ['Outfit', 'sans-serif'],
+            body: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0D0E11;
+      color: #F3F4F6;
+    }
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Outfit', sans-serif;
+    }
+  </style>
+</head>
+<body class="antialiased min-h-screen py-8 px-4 sm:px-6 lg:px-8 selection:bg-brand-primary selection:text-white">
+
+  <div class="max-w-6xl mx-auto space-y-8">
+    
+    <!-- Top Header -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-brand-surfaceBorder">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-brand-primary flex items-center justify-center text-white">
+          <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h1 class="text-2xl font-black text-white font-heading">Dashboard Leads Klien Brand</h1>
+          <p class="text-xs text-brand-muted">Manajemen Prospek Kolaborasi Masuk • Medan Bites & Trails</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="px-4 py-2 rounded-xl border border-brand-surfaceBorder bg-brand-surface text-gray-300 text-xs font-semibold hover:text-white hover:border-brand-primary/50 transition-all flex items-center gap-1.5">
+          <i data-lucide="globe" class="w-4 h-4"></i>
+          <span>Lihat Landing Page</span>
+        </a>
+        <button onclick="exportToCSV()" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all flex items-center gap-1.5 shadow-md">
+          <i data-lucide="file-spreadsheet" class="w-4 h-4"></i>
+          <span>Ekspor CSV</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Quick Stat Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+      <div class="p-6 rounded-2xl bg-brand-surface border border-brand-surfaceBorder">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-muted">Total Leads Masuk</span>
+          <div class="p-2 rounded-lg bg-brand-primary/20 text-brand-primary">
+            <i data-lucide="users" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <p class="text-3xl font-black text-white font-heading mt-2" id="totalLeadsCount">0</p>
+        <p class="text-[11px] text-brand-muted mt-1">Mengisi formulir Media Kit</p>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-brand-surface border border-brand-surfaceBorder">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-muted">Menunggu Follow-up</span>
+          <div class="p-2 rounded-lg bg-brand-accent/20 text-brand-accent">
+            <i data-lucide="clock" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <p class="text-3xl font-black text-brand-accent font-heading mt-2" id="pendingLeadsCount">0</p>
+        <p class="text-[11px] text-brand-muted mt-1">Status belum dihubungi</p>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-brand-surface border border-brand-surfaceBorder">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-muted">Estimasi Nilai Pipeline</span>
+          <div class="p-2 rounded-lg bg-emerald-500/20 text-emerald-400">
+            <i data-lucide="banknote" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <p class="text-3xl font-black text-emerald-400 font-heading mt-2" id="pipelineValue">Rp 0</p>
+        <p class="text-[11px] text-brand-muted mt-1">Berdasarkan rata-rata paket</p>
+      </div>
+    </div>
+
+    <!-- Controls & Add Manual Lead -->
+    <div class="p-6 rounded-2xl bg-brand-surface border border-brand-surfaceBorder space-y-4">
+      <div class="flex items-center justify-between">
+        <h3 class="text-base font-bold text-white flex items-center gap-2">
+          <i data-lucide="user-plus" class="w-4 h-4 text-brand-primary"></i>
+          <span>Tambah Prospek Klien Manual</span>
+        </h3>
+        <span class="text-xs text-brand-muted">Pernah DM atau chat langsung</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-4 gap-3">
+        <input type="text" id="manualBrand" placeholder="Nama Brand / Resto" class="px-4 py-2.5 rounded-xl bg-brand-dark border border-brand-surfaceBorder text-white text-xs focus:outline-none focus:border-brand-primary">
+        <input type="text" id="manualContact" placeholder="Nomor WA / Kontak" class="px-4 py-2.5 rounded-xl bg-brand-dark border border-brand-surfaceBorder text-white text-xs focus:outline-none focus:border-brand-primary">
+        <select id="manualStatus" class="px-4 py-2.5 rounded-xl bg-brand-dark border border-brand-surfaceBorder text-white text-xs focus:outline-none focus:border-brand-primary">
+          <option value="Baru">Status: Baru</option>
+          <option value="Follow-up">Status: Follow-up</option>
+          <option value="Deal">Status: Deal</option>
+        </select>
+        <button onclick="addManualLead()" class="py-2.5 px-4 rounded-xl bg-brand-primary hover:bg-brand-primaryHover text-white text-xs font-bold transition-all shadow-md flex items-center justify-center gap-1.5">
+          <i data-lucide="plus" class="w-4 h-4"></i>
+          <span>Simpan Prospek</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Leads Table -->
+    <div class="rounded-2xl border border-brand-surfaceBorder bg-brand-surface overflow-hidden shadow-xl">
+      <div class="p-5 border-b border-brand-surfaceBorder flex items-center justify-between">
+        <h3 class="text-base font-bold text-white flex items-center gap-2">
+          <i data-lucide="list" class="w-4 h-4 text-brand-accent"></i>
+          <span>Daftar Prospek Masuk</span>
+        </h3>
+        <button onclick="seedSampleData()" class="text-xs text-brand-primary hover:underline font-semibold">
+          Muat Contoh Data Uji
+        </button>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs">
+          <thead class="bg-brand-dark/60 text-gray-400 uppercase font-bold border-b border-brand-surfaceBorder">
+            <tr>
+              <th class="py-3.5 px-4">Nama Brand</th>
+              <th class="py-3.5 px-4">Kontak (WA/Email)</th>
+              <th class="py-3.5 px-4">Waktu Masuk</th>
+              <th class="py-3.5 px-4">Status</th>
+              <th class="py-3.5 px-4 text-right">Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="leadsTableBody" class="divide-y divide-brand-surfaceBorder text-gray-200">
+            <!-- Rendered by JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <div id="emptyState" class="hidden p-12 text-center text-brand-muted space-y-2">
+        <i data-lucide="inbox" class="w-10 h-10 mx-auto opacity-40"></i>
+        <p class="text-sm font-semibold text-gray-400">Belum ada data leads yang tercatat.</p>
+        <p class="text-xs">Ketika pengunjung mengisi formulir di Media Kit Modal, data akan otomatis muncul di sini.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Storage Key
+    const STORAGE_KEY = 'medanbites_leads';
+
+    function getLeads() {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      } catch(e) {
+        return [];
+      }
+    }
+
+    function saveLeads(leads) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(leads));
+      render();
+    }
+
+    function addManualLead() {
+      const brand = document.getElementById('manualBrand').value.trim();
+      const contact = document.getElementById('manualContact').value.trim();
+      const status = document.getElementById('manualStatus').value;
+
+      if (!brand || !contact) {
+        alert('Mohon isi Nama Brand dan Nomor Kontak.');
+        return;
+      }
+
+      const leads = getLeads();
+      leads.unshift({
+        brand,
+        contact,
+        status,
+        date: new Date().toISOString()
+      });
+
+      document.getElementById('manualBrand').value = '';
+      document.getElementById('manualContact').value = '';
+      saveLeads(leads);
+    }
+
+    function updateStatus(index, newStatus) {
+      const leads = getLeads();
+      if (leads[index]) {
+        leads[index].status = newStatus;
+        saveLeads(leads);
+      }
+    }
+
+    function deleteLead(index) {
+      if (confirm('Apakah Anda yakin ingin menghapus prospek ini?')) {
+        const leads = getLeads();
+        leads.splice(index, 1);
+        saveLeads(leads);
+      }
+    }
+
+    function chatWhatsApp(contact, brand) {
+      const cleanPhone = contact.replace(/[^0-9]/g, '');
+      const phone = cleanPhone.startsWith('0') ? '62' + cleanPhone.slice(1) : cleanPhone;
+      const text = encodeURIComponent(`Halo tim ${brand}! Terima kasih sudah mengunduh Media Kit Medan Bites & Trails. Apakah ada yang bisa kami bantu diskusikan untuk kolaborasi brand Anda?`);
+      window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+    }
+
+    function exportToCSV() {
+      const leads = getLeads();
+      if (leads.length === 0) {
+        alert('Belum ada data untuk diekspor.');
+        return;
+      }
+
+      let csv = 'Nama Brand,Kontak,Tanggal,Status\n';
+      leads.forEach(l => {
+        csv += `"${l.brand}","${l.contact}","${new Date(l.date).toLocaleString('id-ID')}","${l.status || 'Baru'}"\n`;
+      });
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.setAttribute('href', url);
+      link.setAttribute('download', `leads_medanbites_${new Date().toISOString().slice(0, 10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function seedSampleData() {
+      const samples = [
+        { brand: "Resto Seafood Bagan Kesawan", contact: "081260789012", date: new Date(Date.now() - 3600000 * 2).toISOString(), status: "Baru" },
+        { brand: "Boutique Heritage Hotel Deli", contact: "marketing@hoteldeli.com", date: new Date(Date.now() - 3600000 * 24).toISOString(), status: "Follow-up" },
+        { brand: "Roastery Kopi Tarik Medan", contact: "085298765432", date: new Date(Date.now() - 3600000 * 48).toISOString(), status: "Deal" }
+      ];
+      saveLeads(samples);
+    }
+
+    function render() {
+      const leads = getLeads();
+      const tbody = document.getElementById('leadsTableBody');
+      const emptyState = document.getElementById('emptyState');
+
+      // KPIs
+      document.getElementById('totalLeadsCount').innerText = leads.length;
+      const pending = leads.filter(l => (l.status || 'Baru') !== 'Deal').length;
+      document.getElementById('pendingLeadsCount').innerText = pending;
+      const dealCount = leads.filter(l => l.status === 'Deal').length;
+      const pipeline = (leads.length * 3500000);
+      document.getElementById('pipelineValue').innerText = 'Rp ' + pipeline.toLocaleString('id-ID');
+
+      tbody.innerHTML = '';
+      if (leads.length === 0) {
+        emptyState.classList.remove('hidden');
+        return;
+      } else {
+        emptyState.classList.add('hidden');
+      }
+
+      leads.forEach((l, idx) => {
+        const tr = document.createElement('tr');
+        tr.className = "hover:bg-brand-dark/40 transition-colors";
+
+        const status = l.status || 'Baru';
+        let statusBadge = '';
+        if (status === 'Deal') {
+          statusBadge = '<span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-bold border border-emerald-500/30">Deal</span>';
+        } else if (status === 'Follow-up') {
+          statusBadge = '<span class="px-2 py-0.5 rounded-full bg-brand-accent/20 text-brand-accent font-bold border border-brand-accent/30">Follow-up</span>';
+        } else {
+          statusBadge = '<span class="px-2 py-0.5 rounded-full bg-brand-primary/20 text-brand-primary font-bold border border-brand-primary/30">Baru</span>';
+        }
+
+        const dateStr = new Date(l.date).toLocaleString('id-ID', { dateStyle: 'medium', timeStyle: 'short' });
+
+        tr.innerHTML = `
+          <td class="py-3.5 px-4 font-bold text-white">${l.brand}</td>
+          <td class="py-3.5 px-4 font-mono text-gray-300">${l.contact}</td>
+          <td class="py-3.5 px-4 text-brand-muted">${dateStr}</td>
+          <td class="py-3.5 px-4">
+            <select onchange="updateStatus(${idx}, this.value)" class="bg-brand-dark border border-brand-surfaceBorder rounded-lg px-2 py-1 text-[11px] text-gray-200">
+              <option value="Baru" ${status === 'Baru' ? 'selected' : ''}>Baru</option>
+              <option value="Follow-up" ${status === 'Follow-up' ? 'selected' : ''}>Follow-up</option>
+              <option value="Deal" ${status === 'Deal' ? 'selected' : ''}>Deal</option>
+            </select>
+          </td>
+          <td class="py-3.5 px-4 text-right space-x-2">
+            <button onclick="chatWhatsApp('${l.contact}', '${l.brand}')" class="px-3 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-[11px] inline-flex items-center gap-1 shadow-sm">
+              <i data-lucide="message-circle" class="w-3 h-3"></i>
+              <span>WA</span>
+            </button>
+            <button onclick="deleteLead(${idx})" class="p-1 rounded-lg text-gray-400 hover:text-red-400 hover:bg-brand-dark transition-colors inline-block" title="Hapus">
+              <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+            </button>
+          </td>
+        `;
+
+        tbody.appendChild(tr);
+      });
+
+      lucide.createIcons();
+    }
+
+    // Initial render
+    render();
+  </script>
+</body>
+</html>

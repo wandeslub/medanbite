@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://medanbites.com/sitemap.xml
